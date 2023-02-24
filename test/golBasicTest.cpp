@@ -30,13 +30,13 @@ TEST_CASE( "Test storing the grid", "[task 1.1]" ) {
 
 }
 
-// TEST_CASE( "My second test", "[some group identifier]" ) {
-//   std::vector<int> a;
-//   REQUIRE( a.size() == 0 );
-// }
+TEST_CASE( "Test initialising the grid at random", "[task 1.2]" ) {
+  // std::vector<int> a;
+  // REQUIRE( a.size() == 0 );
+}
 
-// TEST_CASE( "Simple add", "[MyFirstAddFunction]") {
-//   game::GridStatus a(1, 2);
-//   a.setStatus('o', 0, 0);
-//   REQUIRE( a.getStatus(0, 0) == 'o' );
-// }
+TEST_CASE( "Test initialising the grid from a file", "[task 1.3]") {
+  // game::GridStatus a(1, 2);
+  // a.setStatus('o', 0, 0);
+  // REQUIRE( a.getStatus(0, 0) == 'o' );
+}

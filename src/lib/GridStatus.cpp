@@ -13,16 +13,48 @@
 =============================================================================*/
 
 #include "GridStatus.h"
+#include <random>
+#include <algorithm>
 
 
 namespace game {
 
-GridStatus::GridStatus(uint col, uint row)
+    GridStatus::GridStatus(uint N, uint M) : row(N), col(M)
     {
         for (int i = 0; i < row; i++)
         {
             std::vector<char> r(col, '-');
             grid.push_back(r);
+        }
+
+        randomInit();
+    }
+
+
+    GridStatus::GridStatus(uint N, uint M, uint num) : row(N), col(M)
+    {
+        for (int i = 0; i < row; i++)
+        {
+            std::vector<char> r(col, '-');
+            grid.push_back(r);
+        }
+
+        // flat the grid, and store index in to vector temp
+        std::vector<uint> temp;
+        for (int i = 0; i < row * col; i ++)
+        {
+            temp.push_back(i);
+        }
+
+        // shuffle the vector temp, and get top-num elements as random number
+        std::random_shuffle(temp.begin(), temp.end());
+
+        for (int i = 0; i < num; i ++)
+        {
+            uint location = temp.at(i);
+
+            // revert position from index
+            this -> setStatus('o', location / col, location >= col ? location % col : location);
         }
     }
 
@@ -61,5 +93,20 @@ GridStatus::GridStatus(uint col, uint row)
         return (*this)(x, y);
     }
 
+
+    void GridStatus::randomInit()
+    {
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j ++)
+            {
+                if (rand () / double (RAND_MAX) >= 0.66)  // generate random number in range [0, 1]
+                {
+                    this -> setStatus('o', i, j);
+                }
+            }
+        }
+
+    }
 
 } // end namespace

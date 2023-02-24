@@ -36,11 +36,17 @@ namespace game
     class GridStatus
     {
     private:
+        uint col;
+        uint row;
         std::vector<std::vector<char>> grid;
 
         
     public:
-        GridStatus(uint col, uint row);
+        GridStatus(uint N, uint M);
+
+        GridStatus(uint N, uint M, uint num);
+
+        GridStatus(std::string filename);
 
         ~GridStatus(){}
 
@@ -51,6 +57,8 @@ namespace game
         void setStatus(char s, uint x, uint y);
 
         char getStatus(uint x, uint y);
+
+        void randomInit();
 
     };
 
