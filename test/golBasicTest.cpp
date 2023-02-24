@@ -20,11 +20,13 @@
 #include <memory>
 
 
-TEST_CASE( "My first test", "[some group identifier]" ) {
-  game::GridStatus grid_1(1, 2);
-  grid_1.printGrid();
-  // REQUIRE( grid_1(0, 1) == '-' );
+TEST_CASE( "Test storing the grid", "[task 1.1]" ) {
 
+  REQUIRE_NOTHROW( game::GridStatus(5, 5) );
+
+  game::GridStatus grid_1(5, 5);
+  REQUIRE( grid_1(4, 4) == '-' );
+  REQUIRE_THROWS( grid_1(5, 5) );  // out of range
 
 }
 

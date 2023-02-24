@@ -6,7 +6,8 @@
 int main()
 {
 
-    game::GridStatus grid_1(3, 3);
+    game::GridStatus grid_1(5, 5);
     grid_1.printGrid();
+    grid_1(6, 6);
 
 }
