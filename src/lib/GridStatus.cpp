@@ -15,12 +15,18 @@
 #include "GridStatus.h"
 #include <random>
 #include <algorithm>
+#include <stdexcept>
 
 
 namespace game {
 
     GridStatus::GridStatus(uint N, uint M) : row(N), col(M)
     {
+        if (N == 0 || M == 0)
+        {
+            throw std::invalid_argument("The input of grid size cannot be zero.");
+        }
+
         for (int i = 0; i < row; i++)
         {
             std::vector<char> r(col, '-');
@@ -33,6 +39,11 @@ namespace game {
 
     GridStatus::GridStatus(uint N, uint M, uint num) : row(N), col(M)
     {
+        if (N == 0 || M == 0)
+        {
+            throw std::invalid_argument("The input of grid size cannot be zero.");
+        }
+
         for (int i = 0; i < row; i++)
         {
             std::vector<char> r(col, '-');
@@ -107,6 +118,17 @@ namespace game {
             }
         }
 
+    }
+
+
+    std::vector<uint> GridStatus::getSize()
+    {
+        std::vector<uint> size;
+
+        size.push_back(row);
+        size.push_back(col);
+
+        return size;
     }
 
 } // end namespace

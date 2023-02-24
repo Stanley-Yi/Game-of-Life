@@ -60,6 +60,8 @@ namespace game
 
         void randomInit();
 
+        std::vector<uint> getSize();
+
     };
 
 } // end namespace
