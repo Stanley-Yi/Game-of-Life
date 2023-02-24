@@ -13,6 +13,7 @@
 =============================================================================*/
 
 #include "GridStatus.h"
+#include "FileManager.h"
 #include <random>
 #include <algorithm>
 #include <stdexcept>
@@ -67,6 +68,50 @@ namespace game {
             // revert position from index
             this -> setStatus('o', location / col, location >= col ? location % col : location);
         }
+    }
+
+
+    GridStatus::GridStatus(std::string filename)
+    {
+        FileManager file(filename);
+
+        char s;
+
+        std::vector<char> r;
+
+        while(file.getData(s))
+        {   
+            // process the line breaks, \r\n for Windows, \r for Mac, and \n for Unix
+            if ((std::string) &s == "\r\n" | s == '\n' | s == '\r')
+            {
+                if (r.size() > 0)
+                {
+                    grid.push_back(r);
+                    r.clear();
+                }
+            }
+            else if (s == ' ')
+            {
+                continue;
+            }
+            else
+            {
+                if (s != '-' and s != 'o')
+                {
+                    throw std::invalid_argument("The content of file should only be - or o.");
+                }
+
+                r.push_back(s);
+            }
+        }
+
+        if (r.size() > 0)
+        {
+            grid.push_back(r);  // the last line has no line breaks
+        }
+
+        row = grid.size();
+        col = grid.at(0).size();
     }
 
 

@@ -18,6 +18,7 @@ set(PHAS0100ASSIGNMENT1_LIBRARY_SRCS
   golBasicTypes.cpp
   GridStatus.cpp
   golException.cpp
+  FileManager.cpp
 )
 
 set(PHAS0100ASSIGNMENT1_LIBRARY_HDRS

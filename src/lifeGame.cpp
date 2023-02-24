@@ -6,9 +6,19 @@
 int main()
 {
 
-    game::GridStatus grid_1(6, 6, 36);
-    grid_1.printGrid();
-    
-    game::GridStatus grid_2(9, 9, 81);
-    grid_2.printGrid();
+    try
+    {
+        game::GridStatus grid_1("./test/data/still_lifes.txt");
+        grid_1.printGrid();
+
+        std::cout << grid_1.getSize().at(0) << std::endl;
+        std::cout << grid_1.getSize().at(1) << std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << "Exception caught: " << e.what() << std::endl;
+        std::cout << "We no longer have access to the file handle." << std::endl;
+    }
+
+
 }

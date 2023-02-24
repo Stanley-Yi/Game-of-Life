@@ -15,8 +15,12 @@
 add_library(GridStatus lib/GridStatus.cpp)
 target_include_directories(GridStatus PUBLIC ${ALL_THIRD_PARTY_LIBRARIES})
 
+add_library(FileManager lib/FileManager.cpp)
+target_include_directories(FileManager PUBLIC ${ALL_THIRD_PARTY_LIBRARIES})
+
 add_executable(lifeGame lifeGame.cpp)
 target_link_libraries(lifeGame GridStatus)
+target_link_libraries(lifeGame FileManager)
 
 add_subdirectory(lib)
 add_subdirectory(app)

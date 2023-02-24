@@ -16,6 +16,7 @@
 #include "golCatchMain.h"
 #include "GridStatus.h"
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <memory>
 
@@ -36,6 +37,7 @@ TEST_CASE( "Test storing the grid", "[task 1.1]" ) {
 
 
 TEST_CASE( "Test initialising the grid at random", "[task 1.2]" ) {
+
   game::GridStatus grid_1(5, 4, 6);
   REQUIRE( grid_1.getSize().at(0) == 5 );  // total number of placed cells is correct
   REQUIRE( grid_1.getSize().at(1) == 4 );
@@ -113,7 +115,40 @@ TEST_CASE( "Test initialising the grid at random", "[task 1.2]" ) {
 
 
 TEST_CASE( "Test initialising the grid from a file", "[task 1.3]") {
-  // game::GridStatus a(1, 2);
-  // a.setStatus('o', 0, 0);
-  // REQUIRE( a.getStatus(0, 0) == 'o' );
+  
+  game::GridStatus grid_1("./test/data/glider.txt");
+  REQUIRE( grid_1.getSize().at(0) == 10 );
+  REQUIRE( grid_1.getSize().at(1) == 10 );
+
+  REQUIRE_THROWS( game::GridStatus("./test/data/input.txt") );
+
+  game::GridStatus grid_3("./test/data/oscillators.txt");
+  REQUIRE( grid_3.getSize().at(0) == 12 );
+  REQUIRE( grid_3.getSize().at(1) == 12 );
+
+  game::GridStatus grid_4("./test/data/still_lifes.txt");
+  REQUIRE( grid_4.getSize().at(0) == 10 );
+  REQUIRE( grid_4.getSize().at(1) == 10 );
+
+  REQUIRE_THROWS( game::GridStatus("./Wrong_file_name.txt") );
+
+
+  // test if file contain other character
+  std::ofstream OutFile_1("./test/data/wrong_file.txt");
+	OutFile_1 << "- o - - -\n- - o o o\n- A o - -";
+	OutFile_1.close();
+
+  REQUIRE_THROWS( game::GridStatus("./test/data/wrong_file.txt") );
+  std::remove("./test/data/wrong_file.txt");
+
+
+  // test file with unequal rows and columns
+  std::ofstream OutFile_2("./test/data/right_file.txt");
+	OutFile_2 << "- o - - -\n- - o o o\n- - o - -";
+	OutFile_2.close();
+
+  game::GridStatus grid_5("./test/data/right_file.txt");
+  REQUIRE( grid_5.getSize().at(0) == 3 );
+  REQUIRE( grid_5.getSize().at(1) == 5 );
+  std::remove("./test/data/right_file.txt");
 }
