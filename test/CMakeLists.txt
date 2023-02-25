@@ -17,7 +17,7 @@ set(TMP_DIR ${CMAKE_BINARY_DIR}/test/temp)
 
 set(TEST_CASES
   test_data_structure
-  gameCommandLineArgsTest
+  test_simulator
   # Add name of new test file here (without .cpp extension) to build a new test executable
 )
 
@@ -37,7 +37,7 @@ add_test(DataStructure ${EXECUTABLE_OUTPUT_PATH}/test_data_structure
         ${DATA_DIR}/glider.txt ${DATA_DIR}/input.txt ${DATA_DIR}/oscillators.txt 
         ${DATA_DIR}/still_lifes.txt ${DATA_DIR}/Wrong_file_name.txt 
         ${DATA_DIR}/wrong_file.txt ${DATA_DIR}/right_file.txt)
-# add_test(1File ${EXECUTABLE_OUTPUT_PATH}/gameCommandLineArgsTest ${DATA_DIR}/input.txt ${DATA_DIR}/glider.txt)
+        
+add_test(simulator ${EXECUTABLE_OUTPUT_PATH}/test_simulator)
 # Add add_test line here to expose a new test executable to CTest
 
-# add_test(NoArgs ${EXECUTABLE_OUTPUT_PATH}/test_store_grid)

@@ -19,6 +19,7 @@ set(PHAS0100ASSIGNMENT1_LIBRARY_SRCS
   GridStatus.cpp
   golException.cpp
   FileManager.cpp
+  LifeGame.cpp
 )
 
 set(PHAS0100ASSIGNMENT1_LIBRARY_HDRS

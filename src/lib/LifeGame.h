@@ -12,43 +12,54 @@
 
 =============================================================================*/
 
-
 #pragma once
-#include <cstdio>
+#include <vector>
+#include <string>
 #include <iostream>
-#include <stdexcept>
-#include <fstream>
+#include "GridStatus.h"
 
-#ifndef FileManager_h
-#define FileManager_h
+#ifndef LifeGame_h
+#define LifeGame_h
 
 /**
-* \file FileManager.h
-* \brief This header used for read file safely.
+* \file LifeGame.h
+* \brief This header used for Task 2, where contain a class of LifeGame.
 * \ingroup utilities
 */
 namespace game
 {
 
 /**
-* \brief The class of FileManager used to read file.
+* \brief The class of LifeGame, which is a Simulator for the Game of Life.
 */
 
-    class FileManager
+    class LifeGame
     {
     private:
-        FILE *f;
+        uint generation;
+        GridStatus grid;
 
+        
     public:
-        FileManager(std::string fileName);
 
-        ~FileManager();
+        LifeGame(uint N, uint M);
 
-        bool getData(char &);
+        LifeGame(uint N, uint M, uint num);
+
+        LifeGame(std::string filename);
+
+        ~LifeGame() {}
+
+        void printGrid();
+
+        void takeStep();
+
+        char getStatus(uint x, uint y);
+
+        uint aliveNeighbour(uint x, uint y);
     };
     
 
 } // end namespace
 
 #endif
-

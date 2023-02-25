@@ -42,6 +42,7 @@ namespace game
 
         
     public:
+        
         GridStatus(uint N, uint M);
 
         GridStatus(uint N, uint M, uint num);

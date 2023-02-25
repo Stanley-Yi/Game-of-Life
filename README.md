@@ -37,3 +37,29 @@ ctest
 ```
 
 Additional build and running instructions left to the student.
+
+
+## Running the application
+### Running with glider.txt
+To use glider.txt initialize grid (with generation 4):
+```
+./build/bin/gof_simulator -f test/data/glider.txt -g 4
+```
+After 4 evolutions, the result of grid that initialized by glider.txt is shown as below:
+
+<img src="img/glider_after_4_evolutions.png" alt="image" style="zoom: 67%;" />
+
+The whole process is shown as below:
+<img src="img/glider_4_evolutions_process.png" alt="image"/>
+
+### 7 x 7 random grid
+To use 7 by 7 randomly initialized grid (with generation 4 and 15 alive cells initially):
+```
+./build/bin/gof_simulator -s 7 7 -n 15 -g 4
+```
+After 4 evolutions, the result of 7 by 7 randomly initialized grid is shown as below:
+
+<img src="img/7x7_after_4_evolutions.png" alt="image" style="zoom: 67%;" />
+
+The whole process is shown as below:
+<img src="img/7x7_4_evolutions_process.png" alt="image"/>
