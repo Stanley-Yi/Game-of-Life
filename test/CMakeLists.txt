@@ -16,14 +16,13 @@ set(DATA_DIR ${CMAKE_SOURCE_DIR}/test/data)
 set(TMP_DIR ${CMAKE_BINARY_DIR}/test/temp)
 
 set(TEST_CASES
-  golBasicTest
+  test_data_structure
   gameCommandLineArgsTest
   # Add name of new test file here (without .cpp extension) to build a new test executable
-  # test_store_grid
 )
 
 foreach(_test_case ${TEST_CASES})
-  add_executable(${_test_case} ${_test_case}.cpp golCatchMain.cpp)
+  add_executable(${_test_case} ${_test_case}.cpp gameCatchMain.cpp)
   target_link_libraries(${_test_case} ${PHAS0100ASSIGNMENT1_LIBRARIES} ${ALL_THIRD_PARTY_LIBRARIES})
 endforeach()
 
@@ -34,8 +33,11 @@ endforeach()
 # Dont forget its:  add_test(<test name (globally unique) > <exe name> <argument1> <argument2>
 ##################################################################################################
 
-add_test(NoArgs ${EXECUTABLE_OUTPUT_PATH}/golBasicTest)
-add_test(1File ${EXECUTABLE_OUTPUT_PATH}/gameCommandLineArgsTest ${DATA_DIR}/input.txt)
+add_test(DataStructure ${EXECUTABLE_OUTPUT_PATH}/test_data_structure 
+        ${DATA_DIR}/glider.txt ${DATA_DIR}/input.txt ${DATA_DIR}/oscillators.txt 
+        ${DATA_DIR}/still_lifes.txt ${DATA_DIR}/Wrong_file_name.txt 
+        ${DATA_DIR}/wrong_file.txt ${DATA_DIR}/right_file.txt)
+# add_test(1File ${EXECUTABLE_OUTPUT_PATH}/gameCommandLineArgsTest ${DATA_DIR}/input.txt ${DATA_DIR}/glider.txt)
 # Add add_test line here to expose a new test executable to CTest
 
 # add_test(NoArgs ${EXECUTABLE_OUTPUT_PATH}/test_store_grid)

@@ -13,7 +13,8 @@
 =============================================================================*/
 
 #include "catch.hpp"
-#include "golCatchMain.h"
+#include "gameCatchMain.h"
+#include "GridStatus.h"
 #include <iostream>
 
 TEST_CASE( "My first test", "[init]" ) {
@@ -21,8 +22,12 @@ TEST_CASE( "My first test", "[init]" ) {
   int expectedNumberOfArgs = 2;
   if (game::argc != expectedNumberOfArgs)
   {
-    std::cerr << "Usage: mpMyFirstCatchTest fileName.txt" << std::endl;
+    std::cerr << "fsdfad " << (std::string) game::argv[1] << std::endl;
     REQUIRE( game::argc == expectedNumberOfArgs);
   }
   REQUIRE(true);
+
+  // game::GridStatus grid_1(game::argv[0]);
+  // REQUIRE( grid_1.getSize().at(0) == 10 );
+  // REQUIRE( grid_1.getSize().at(1) == 10 );
 }

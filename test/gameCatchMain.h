@@ -12,8 +12,8 @@
 
 =============================================================================*/
 
-#ifndef golCatchMain_h
-#define golCatchMain_h
+#ifndef gameCatchMain_h
+#define gameCatchMain_h
 
 namespace game
 {

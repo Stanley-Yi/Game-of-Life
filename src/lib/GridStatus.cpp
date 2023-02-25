@@ -176,4 +176,39 @@ namespace game {
         return size;
     }
 
+
+    uint GridStatus::aliveNeighbour(uint x, uint y)
+    {
+        if (x >= row | y >= col)
+        {
+            throw std::invalid_argument("The input index out of range.");
+        }
+
+        uint alive = 0;
+
+        int r = (int) x;
+        int c = (int) y;
+
+        // all positions of eight neighbour
+        std::vector<std::vector<int>> index {{r - 1, c - 1}, {r - 1, c}, {r - 1, c + 1}, {r, c - 1}, 
+                                             {r, c + 1}, {r + 1, c - 1}, {r + 1, c}, {r + 1, c + 1}};
+
+        for (auto &i : index)
+        {
+            // out of range
+            if (i.at(0) < 0 | i.at(0) >= row | i.at(1) < 0 | i.at(1) >= col)
+            {
+                continue;
+            }
+
+            if (this -> getStatus(i.at(0), i.at(1)) == 'o')
+            {
+                alive ++;
+            }
+        }
+
+        return alive;
+    }
+    
+
 } // end namespace

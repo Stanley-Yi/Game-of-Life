@@ -13,6 +13,8 @@ int main()
 
         std::cout << grid_1.getSize().at(0) << std::endl;
         std::cout << grid_1.getSize().at(1) << std::endl;
+
+        std::cout << grid_1.aliveNeighbour(10, 10) << std::endl;
     }
     catch(std::exception &e)
     {

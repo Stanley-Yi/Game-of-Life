@@ -14,7 +14,7 @@
 
 #define CATCH_CONFIG_RUNNER  // This tells Catch we provide main.
 #include "catch.hpp"
-#include "golCatchMain.h"
+#include "gameCatchMain.h"
 
 // Global! Only do this in a private test harness.
 namespace game

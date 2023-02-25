@@ -62,6 +62,8 @@ namespace game
 
         std::vector<uint> getSize();
 
+        uint aliveNeighbour(uint x, uint y);
+
     };
 
 } // end namespace
