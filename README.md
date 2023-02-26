@@ -121,7 +121,9 @@ After build, user can use command line to access the app of finding stationary p
 
 ![still_lifes_help](img/still_lifes_help.png)
 
-User can run the program by specify the grid size, alive cell number, maximum iteration number, and initial condition number. Same as before, please input two integers when use -s to specify the size of grid.
+User can run the program by specify the grid size, alive cell number, maximum iteration number, and initial condition number. Same as before, please input two integers when use -s to specify the size of grid. Moreover, the row and column must larger or equal to 4 in this application, otherwise a error will be reported.
+
+![still_lifes_error](img/still_lifes_error.png)
 
 An example of specify a 4 x 4 grid, and set maximum iteration as 5, number of live cells is 6, and initial condition number is 20:
 
@@ -140,3 +142,14 @@ To run the program for a 4 by 4 grid of cells (with 5 alive cells, maximum itera
 As a result, we found 3 still lifes,  the screenshots are shown as below:
 
 ![still_lifes](img/still_lifes.png)
+
+
+
+## Usage
+
+Additionally, user can explore more functionality of the game of life. Users are allow to add their code into the file of "src/game.cpp", and run it after building by using command:
+
+```
+./build/bin/game
+```
+

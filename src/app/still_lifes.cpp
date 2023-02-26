@@ -73,6 +73,11 @@ void print_pattern(uint r, uint c, game::LifeGame grid) {
 
 void find_still(uint r, uint c, game::LifeGame grid, uint iteration) {
 
+  if (r < 4 || c < 4)
+  {
+    throw std::invalid_argument("The size is to small to exits still life.");
+  }
+
   for (int k = 0; k < iteration; k++) {
     game::LifeGame *last = new game::LifeGame(grid);
 
@@ -113,9 +118,12 @@ int main(int argc, char **argv) {
 
   uint iteration = 10;
   uint condition = 3;
-  uint row;
-  uint col;
-  uint num = -1;
+  uint row = 0;
+  uint col = 0;
+  uint num = 0;
+  bool row_flag = false;
+  bool col_flag = false;
+  bool num_flag = false;
 
   for (int i = 1; i < argc; i++) {
     std::string arg = argv[i];
@@ -158,6 +166,9 @@ int main(int argc, char **argv) {
         row = std::atoi(argv[++i]);
         col = std::atoi(argv[++i]);
 
+        row_flag = true;
+        col_flag = true;
+
       } else {
         std::cerr
             << "--size option requires two integers row and colnum as argument."
@@ -172,6 +183,8 @@ int main(int argc, char **argv) {
 
         num = std::atoi(argv[++i]);
 
+        num_flag = true;
+
       } else {
         std::cerr << "--num option requires one integer as argument."
                   << std::endl;
@@ -184,8 +197,8 @@ int main(int argc, char **argv) {
   // flag to show use which constructor
   uint flag = 0;
 
-  if (row & col) {
-    if (num != -1) {
+  if (row_flag && col_flag) {
+    if (num_flag) {
       flag = 3;
     } else {
       flag = 2;

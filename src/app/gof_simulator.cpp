@@ -44,9 +44,12 @@ int main(int argc, char **argv) {
 
   std::string filename;
   uint generation = 10;
-  uint row;
-  uint col;
-  uint num = -1;
+  uint row = 0;
+  uint col = 0;
+  uint num = 0;
+  bool row_flag = false;
+  bool col_flag = false;
+  bool num_flag = false;
 
   for (int i = 1; i < argc; i++) {
     std::string arg = argv[i];
@@ -90,6 +93,9 @@ int main(int argc, char **argv) {
         row = std::atoi(argv[++i]);
         col = std::atoi(argv[++i]);
 
+        row_flag = true;
+        col_flag = true;
+
       } else {
         std::cerr
             << "--size option requires two integers row and colnum as argument."
@@ -103,6 +109,8 @@ int main(int argc, char **argv) {
       if (i + 1 < argc) {
 
         num = std::atoi(argv[++i]);
+
+        num_flag = true;
 
       } else {
         std::cerr << "--num option requires one integer as argument."
@@ -128,8 +136,8 @@ int main(int argc, char **argv) {
 
   }
 
-  else if (row & col) {
-    if (num != -1) {
+  else if (row_flag && col_flag) {
+    if (num_flag) {
       game::LifeGame g(row, col, num);
       life = g;
     } else {
