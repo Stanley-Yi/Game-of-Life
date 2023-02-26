@@ -15,15 +15,14 @@
 set(PHAS0100ASSIGNMENT1_LIBRARY_NAME PHAS0100ASSIGNMENT1)
 
 set(PHAS0100ASSIGNMENT1_LIBRARY_SRCS
-  golBasicTypes.cpp
   GridStatus.cpp
-  golException.cpp
+  gameException.cpp
   FileManager.cpp
   LifeGame.cpp
 )
 
 set(PHAS0100ASSIGNMENT1_LIBRARY_HDRS
-  golExceptionMacro.h
+  gameExceptionMacro.h
 )
 
 add_library(${PHAS0100ASSIGNMENT1_LIBRARY_NAME} ${PHAS0100ASSIGNMENT1_LIBRARY_HDRS} ${PHAS0100ASSIGNMENT1_LIBRARY_SRCS})

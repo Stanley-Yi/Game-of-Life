@@ -14,6 +14,7 @@
 
 set(_command_line_apps
   gof_simulator
+  still_lifes
 )
 
 foreach(_app ${_command_line_apps})

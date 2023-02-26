@@ -12,8 +12,11 @@
 
 =============================================================================*/
 
-#include "golBasicTypes.h"
+#ifndef gameExceptionMacro_h
+#define gameExceptionMacro_h
 
-namespace game {
+#include "gameException.h"
 
-} // end namespace
+#define gameExceptionThrow() throw game::Exception(__FILE__,__LINE__)
+
+#endif

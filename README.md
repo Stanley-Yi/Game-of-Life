@@ -39,7 +39,7 @@ ctest
 Additional build and running instructions left to the student.
 
 
-## Running the application
+## Game of Life Simulator
 ### Running with glider.txt
 To use glider.txt initialize grid (with generation 4):
 ```
@@ -50,7 +50,10 @@ After 4 evolutions, the result of grid that initialized by glider.txt is shown a
 <img src="img/glider_after_4_evolutions.png" alt="image" style="zoom: 67%;" />
 
 The whole process is shown as below:
-<img src="img/glider_4_evolutions_process.png" alt="image"/>
+
+![glider_4_evolutions_process](D:\Files\Learning Materials\Postgraduate\Semester 2\PHAS0100\Coursework\CW1\22043131\PHAS0100Assignment1\img\glider_4_evolutions_process.png)
+
+
 
 ### 7 x 7 random grid
 To use 7 by 7 randomly initialized grid (with generation 4 and 15 alive cells initially):
@@ -59,7 +62,22 @@ To use 7 by 7 randomly initialized grid (with generation 4 and 15 alive cells in
 ```
 After 4 evolutions, the result of 7 by 7 randomly initialized grid is shown as below:
 
-<img src="img/7x7_after_4_evolutions.png" alt="image" style="zoom: 67%;" />
+<img src="D:\Files\Learning Materials\Postgraduate\Semester 2\PHAS0100\Coursework\CW1\22043131\PHAS0100Assignment1\img\7x7_after_4_evolutions.png" alt="7x7_after_4_evolutions" style="zoom:67%;" />
 
 The whole process is shown as below:
-<img src="img/7x7_4_evolutions_process.png" alt="image"/>
+
+![7x7_4_evolutions_process](D:\Files\Learning Materials\Postgraduate\Semester 2\PHAS0100\Coursework\CW1\22043131\PHAS0100Assignment1\img\7x7_4_evolutions_process.png)
+
+
+
+## Finding stationary patterns
+
+To run the program for a 4 by 4 grid of cells (with 5 alive cells, maximum iteration 5, and 10 initial conditions):
+
+```
+./build/bin/still_lifes -s 4 4 -i 5 -n 5 -c 10
+```
+
+As a result, we found 3 still lifes,  the screenshots are shown as below:
+
+![still_lifes](D:\Files\Learning Materials\Postgraduate\Semester 2\PHAS0100\Coursework\CW1\22043131\PHAS0100Assignment1\img\still_lifes.png)

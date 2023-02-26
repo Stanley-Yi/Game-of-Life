@@ -12,8 +12,8 @@
 
 =============================================================================*/
 
-#ifndef golException_h
-#define golException_h
+#ifndef gameException_h
+#define gameException_h
 
 #include <stdexcept>
 #include <ostream>

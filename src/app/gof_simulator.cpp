@@ -14,7 +14,7 @@
 
 #include <GridStatus.h>
 #include <LifeGame.h>
-#include <golExceptionMacro.h>
+#include <gameExceptionMacro.h>
 #include <iostream>
 #include <thread>
 #include <chrono>

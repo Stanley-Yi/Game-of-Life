@@ -12,7 +12,7 @@
 
 =============================================================================*/
 
-#include "golException.h"
+#include "gameException.h"
 
 namespace game
 {
