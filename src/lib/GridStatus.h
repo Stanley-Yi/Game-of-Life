@@ -13,60 +13,57 @@
 =============================================================================*/
 
 #pragma once
-#include <vector>
-#include <string>
 #include <iostream>
+#include <string>
+#include <vector>
+
 
 #ifndef GridStatus_h
 #define GridStatus_h
 
 /**
-* \file GridStatus.h
-* \brief This header used for Task 1, where contain a class of GridStatus.
-* \ingroup utilities
-*/
-namespace game
-{
+ * \file GridStatus.h
+ * \brief This header used for Task 1, where contain a class of GridStatus.
+ * \ingroup utilities
+ */
+namespace game {
 
 /**
-* \brief The class of GridStatus, which contain functions such as print, set, get and constructor. 
-        It store maintain a nested vector to represent grid, and store status for cells.
+* \brief The class of GridStatus, which contain functions such as print, set,
+get and constructor. It store maintain a nested vector to represent grid, and
+store status for cells.
 */
 
-    class GridStatus
-    {
-    private:
-        uint col;
-        uint row;
-        std::vector<std::vector<char>> grid;
+class GridStatus {
+private:
+  uint col;
+  uint row;
+  std::vector<std::vector<char>> grid;
 
-        
-    public:
-        
-        GridStatus(uint N, uint M);
+public:
+  GridStatus(uint N, uint M);
 
-        GridStatus(uint N, uint M, uint num);
+  GridStatus(uint N, uint M, uint num);
 
-        GridStatus(std::string filename);
+  GridStatus(std::string filename);
 
-        ~GridStatus(){}
+  ~GridStatus() {}
 
-        void printGrid();
+  void printGrid();
 
-        char& operator()(uint x, uint y);
+  char &operator()(uint x, uint y);
 
-        void setStatus(char s, uint x, uint y);
+  void setStatus(char s, uint x, uint y);
 
-        char getStatus(uint x, uint y);
+  char getStatus(uint x, uint y);
 
-        void randomInit();
+  void randomInit();
 
-        std::vector<uint> getSize();
+  std::vector<uint> getSize();
 
-        uint aliveNeighbour(uint x, uint y);
+  uint aliveNeighbour(uint x, uint y);
+};
 
-    };
-
-} // end namespace
+} // namespace game
 
 #endif

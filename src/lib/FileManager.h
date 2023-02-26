@@ -12,43 +12,38 @@
 
 =============================================================================*/
 
-
 #pragma once
 #include <cstdio>
+#include <fstream>
 #include <iostream>
 #include <stdexcept>
-#include <fstream>
 
 #ifndef FileManager_h
 #define FileManager_h
 
 /**
-* \file FileManager.h
-* \brief This header used for read file safely.
-* \ingroup utilities
-*/
-namespace game
-{
+ * \file FileManager.h
+ * \brief This header used for read file safely.
+ * \ingroup utilities
+ */
+namespace game {
 
 /**
-* \brief The class of FileManager used to read file.
-*/
+ * \brief The class of FileManager used to read file.
+ */
 
-    class FileManager
-    {
-    private:
-        FILE *f;
+class FileManager {
+private:
+  FILE *f;
 
-    public:
-        FileManager(std::string fileName);
+public:
+  FileManager(std::string fileName);
 
-        ~FileManager();
+  ~FileManager();
 
-        bool getData(char &);
-    };
-    
+  bool getData(char &);
+};
 
-} // end namespace
+} // namespace game
 
 #endif
-

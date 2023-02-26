@@ -35,7 +35,8 @@ TEST_CASE("Test storing the grid", "[task 1.1]") {
 TEST_CASE("Test initialising the grid at random", "[task 1.2]") {
 
   game::GridStatus grid_1(5, 4, 6);
-  REQUIRE(grid_1.getSize().at(0) == 5); // total number of placed cells is correct
+  REQUIRE(grid_1.getSize().at(0) ==
+          5); // total number of placed cells is correct
   REQUIRE(grid_1.getSize().at(1) == 4);
 
   game::GridStatus grid_2(5, 4, 6);

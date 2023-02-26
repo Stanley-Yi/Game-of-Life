@@ -15,13 +15,11 @@
 #ifndef gameCatchMain_h
 #define gameCatchMain_h
 
-namespace game
-{
+namespace game {
 
 extern int argc;
-extern char** argv;
+extern char **argv;
 
-} // end namespace
+} // namespace game
 
 #endif
-

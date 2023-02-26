@@ -13,53 +13,48 @@
 =============================================================================*/
 
 #pragma once
-#include <vector>
-#include <string>
-#include <iostream>
 #include "GridStatus.h"
+#include <iostream>
+#include <string>
+#include <vector>
 
 #ifndef LifeGame_h
 #define LifeGame_h
 
 /**
-* \file LifeGame.h
-* \brief This header used for Task 2, where contain a class of LifeGame.
-* \ingroup utilities
-*/
-namespace game
-{
+ * \file LifeGame.h
+ * \brief This header used for Task 2, where contain a class of LifeGame.
+ * \ingroup utilities
+ */
+namespace game {
 
 /**
-* \brief The class of LifeGame, which is a Simulator for the Game of Life.
-*/
+ * \brief The class of LifeGame, which is a Simulator for the Game of Life.
+ */
 
-    class LifeGame
-    {
-    private:
-        uint generation;
-        GridStatus grid;
+class LifeGame {
+private:
+  uint generation;
+  GridStatus grid;
 
-        
-    public:
+public:
+  LifeGame(uint N, uint M);
 
-        LifeGame(uint N, uint M);
+  LifeGame(uint N, uint M, uint num);
 
-        LifeGame(uint N, uint M, uint num);
+  LifeGame(std::string filename);
 
-        LifeGame(std::string filename);
+  ~LifeGame() {}
 
-        ~LifeGame() {}
+  void printGrid();
 
-        void printGrid();
+  void takeStep();
 
-        void takeStep();
+  char getStatus(uint x, uint y);
 
-        char getStatus(uint x, uint y);
+  uint aliveNeighbour(uint x, uint y);
+};
 
-        uint aliveNeighbour(uint x, uint y);
-    };
-    
-
-} // end namespace
+} // namespace game
 
 #endif

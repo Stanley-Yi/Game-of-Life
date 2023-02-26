@@ -13,35 +13,30 @@
 =============================================================================*/
 
 #include "GridStatus.h"
+#include "LifeGame.h"
 #include "catch.hpp"
 #include "gameCatchMain.h"
-#include "LifeGame.h"
 
-
-char result(char status, uint num)
-{
+char result(char status, uint num) {
   char res = status;
 
-  if (status == '-' & num == 3)
-  {
+  if (status == '-' & num == 3) {
     res = 'o';
   }
 
   // A live cell with two or three live neighbours should stay alive
-  else if (status == 'o' & (num == 2 | num == 3))
-  {
+  else if (status == 'o' & (num == 2 | num == 3)) {
     res = 'o';
   }
 
-  // A live cell with less than two or more than three live neighbours should die
-  else if (status == 'o' & (num < 2 | num > 3))
-  {
+  // A live cell with less than two or more than three live neighbours should
+  // die
+  else if (status == 'o' & (num<2 | num> 3)) {
     res = '-';
   }
 
   return res;
 }
-
 
 TEST_CASE("Test implementing the game of life", "[task 2.1]") {
 
@@ -58,7 +53,7 @@ TEST_CASE("Test implementing the game of life", "[task 2.1]") {
   char status_1 = grid.getStatus(x_1, y_1);
   int num_1 = grid.aliveNeighbour(x_1, y_1);
   char res_1 = result(status_1, num_1);
-  
+
   int x_2 = 4;
   int y_2 = 4;
   char status_2 = grid.getStatus(x_2, y_2);
@@ -77,14 +72,13 @@ TEST_CASE("Test implementing the game of life", "[task 2.1]") {
   int num_4 = grid.aliveNeighbour(x_4, y_4);
   char res_4 = result(status_4, num_4);
 
-
   // four edge
   int x_5 = 0;
   int y_5 = 2;
   char status_5 = grid.getStatus(x_5, y_5);
   int num_5 = grid.aliveNeighbour(x_5, y_5);
   char res_5 = result(status_5, num_5);
-  
+
   int x_6 = 3;
   int y_6 = 0;
   char status_6 = grid.getStatus(x_6, y_6);
@@ -103,14 +97,12 @@ TEST_CASE("Test implementing the game of life", "[task 2.1]") {
   int num_8 = grid.aliveNeighbour(x_8, y_8);
   char res_8 = result(status_8, num_8);
 
-
   // one normal
   int x_9 = 2;
   int y_9 = 3;
   char status_9 = grid.getStatus(x_9, y_9);
   int num_9 = grid.aliveNeighbour(x_9, y_9);
   char res_9 = result(status_9, num_9);
-
 
   grid.takeStep();
 
@@ -123,6 +115,4 @@ TEST_CASE("Test implementing the game of life", "[task 2.1]") {
   REQUIRE(res_7 == grid.getStatus(x_7, y_7));
   REQUIRE(res_8 == grid.getStatus(x_8, y_8));
   REQUIRE(res_9 == grid.getStatus(x_9, y_9));
-
-
 }
