@@ -125,7 +125,7 @@ User can run the program by specify the grid size, alive cell number, maximum it
 
 An example of specify a 4 x 4 grid, and set maximum iteration as 5, number of live cells is 6, and initial condition number is 20:
 
-![still_lifes_example](D:\Files\Learning Materials\Postgraduate\Semester 2\PHAS0100\Coursework\CW1\22043131\PHAS0100Assignment1\img\still_lifes_example.png)
+![still_lifes_example](img/still_lifes_example.png)
 
 
 
