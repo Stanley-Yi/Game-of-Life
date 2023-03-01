@@ -13,7 +13,7 @@
 #============================================================================*/
 
 set(_command_line_apps
-  gof_simulator
+  golSimulator
   still_lifes
 )
 

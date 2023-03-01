@@ -56,24 +56,24 @@ A example of the result of ctest:
 After build, user can use command line to access the game of life simulator (./build/bin/gof_simulator). User can get useful help message when run with no arguments or run with --help or -h options:
 
 ```
-./build/bin/gof_simulator -h
+./build/bin/golSimulator -h
 ```
 
-![gof_simulator_help](img/gof_simulator_help.png)
+![gof_simulator_help](img/golSimulator_help.png)
 
 User can run the program by specify a valid file path, or grid size (number of row and column) and alive cell number. However, please notice that user should input two integers when use -s to specify the size of grid, for example:
 
 ```
-./build/bin/gof_simulator -s 5 5
+./build/bin/golSimulator -s 5 5
 ```
 
 Any invalid arguments will cause errors:
 
-![gof_simulator_error](img/gof_simulator_error.png)
+![gof_simulator_error](img/golSimulator_error.png)
 
 An example of specify a file path, and set maximum generation as 1:
 
-![gof_simulator_example](img/gof_simulator_example.png)
+![gof_simulator_example](img/golSimulator_example.png)
 
 Finally, user can interrupt running programs by using "CTRL + C".
 
@@ -82,7 +82,7 @@ Finally, user can interrupt running programs by using "CTRL + C".
 ### Running with glider.txt
 To use glider.txt initialize grid (with generation 4):
 ```
-./build/bin/gof_simulator -f test/data/glider.txt -g 4
+./build/bin/golSimulator -f test/data/glider.txt -g 4
 ```
 After 4 evolutions, the result of grid that initialized by glider.txt is shown as below:
 
@@ -97,7 +97,7 @@ The whole process is shown as below:
 ### 7 x 7 random grid
 To use 7 by 7 randomly initialized grid (with generation 4 and 15 alive cells initially):
 ```
-./build/bin/gof_simulator -s 7 7 -n 15 -g 4
+./build/bin/golSimulator -s 7 7 -n 15 -g 4
 ```
 After 4 evolutions, the result of 7 by 7 randomly initialized grid is shown as below:
 
